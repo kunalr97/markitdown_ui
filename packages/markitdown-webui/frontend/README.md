@@ -8,11 +8,17 @@ React + Vite single-page app providing a friendly interface to the MarkItDown co
 # Install dependencies
 npm install  # or use pnpm / yarn if preferred
 
-# Start dev server
+# Start dev server (proxies /api to http://localhost:8000)
 npm run dev
 
-# Build for production
+# Build for production (outputs dist/)
 npm run build
 ```
 
-During development the Vite dev server proxies API calls to `http://localhost:8000`.
+Set `VITE_API_BASE` to point at your deployed backend when building for production, e.g.
+
+```bash
+VITE_API_BASE=https://your-backend.onrender.com npm run build
+```
+
+During local development you can leave `VITE_API_BASE` unset.

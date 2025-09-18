@@ -17,6 +17,8 @@ interface UploadPanelProps {
   onError: (message: string) => void;
 }
 
+const apiBase = (import.meta.env.VITE_API_BASE as string | undefined)?.replace(/\/$/, '') || '';
+
 export function UploadPanel({ onSuccess, onError }: UploadPanelProps): JSX.Element {
   const [isUploading, setIsUploading] = useState(false);
   const [lastFileName, setLastFileName] = useState('');
@@ -35,7 +37,8 @@ export function UploadPanel({ onSuccess, onError }: UploadPanelProps): JSX.Eleme
       formData.append('file', file, file.name);
 
       try {
-        const response = await axios.post('/api/convert', formData, {
+        const endpoint = `${apiBase}/api/convert`;
+        const response = await axios.post(endpoint, formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
           responseType: 'text'
         });
