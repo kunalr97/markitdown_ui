@@ -70,7 +70,7 @@ export default function App(): JSX.Element {
             <Heading as="h1" size="lg">
               MarkItDown Web UI
             </Heading>
-            <Text color="gray.500">Convert documents to Markdown without touching the CLI.</Text>
+            <Text color="gray.500">Convert documents into LLM-ready Markdown powered by Microsoft's MarkItDown.</Text>
           </Box>
           <Spacer />
           <IconButton
@@ -113,7 +113,12 @@ export default function App(): JSX.Element {
           </Heading>
           <Textarea value={markdown} readOnly minH="200px" />
         </Box>
+
+        <Box textAlign="center" color="gray.500" fontSize="sm">
+          Powered by Microsoft's <a href="https://github.com/microsoft/markitdown" target="_blank" rel="noopener noreferrer">MarkItDown</a> | Maintained by Kunal Runwal
+        </Box>
       </VStack>
     </Container>
   );
 }
+
