@@ -9,16 +9,16 @@ React + Vite single-page app providing a friendly interface to the MarkItDown co
 npm install  # or use pnpm / yarn if preferred
 
 # Start dev server (proxies /api to http://localhost:8000)
-npm run dev
+$env:VITE_API_BASE="https://markitdown-ui.onrender.com"; npm run dev
 
 # Build for production (outputs dist/)
-npm run build
+VITE_API_BASE=https://markitdown-ui.onrender.com npm run build
 ```
 
-Set `VITE_API_BASE` to point at your deployed backend when building for production, e.g.
+When deploying (e.g., Vercel/Netlify), define the environment variable:
 
-```bash
-VITE_API_BASE=https://your-backend.onrender.com npm run build
+```
+VITE_API_BASE=https://markitdown-ui.onrender.com
 ```
 
-During local development you can leave `VITE_API_BASE` unset.
+This makes the upload panel talk to your Render-hosted backend.
